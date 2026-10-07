@@ -1,0 +1,71 @@
+name: Publish and verify GENESIS
+on:
+  push:
+    paths:
+      - '.publication/READY'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: genesis-publication
+  cancel-in-progress: false
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Unpack the reviewed publication sources if present
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, json, lzma, pathlib, shutil
+          root = pathlib.Path.cwd()
+          transport = root / '.publication'
+          if transport.exists():
+              expected = (transport / 'READY').read_text().strip()
+              encoded = ''.join(p.read_text().strip() for p in sorted(transport.glob('source-*.b64')))
+              data = base64.b64decode(encoded, validate=True)
+              assert hashlib.sha256(data).hexdigest() == expected, 'Source checksum mismatch'
+              sources = json.loads(lzma.decompress(data).decode('utf-8'))
+              for name, text in sources.items():
+                  dest = (root / name).resolve()
+                  assert dest.is_relative_to(root) and '.git' not in pathlib.Path(name).parts
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  dest.write_text(text, encoding='utf-8')
+              shutil.rmtree(transport)
+              print('Restored', len(sources), 'reviewed text files.')
+          PY
+      - name: Test the actual engine and rebuild the standalone demo
+        run: |
+          node test_genesis.js
+          node examples/compare-memory.cjs
+          node build_demo.cjs
+          node --check genesis_engine.js
+          node --check genesis_app_en.js
+      - name: Publish source files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish GENESIS: engine, offline demos, tests and documentation'
+            git push origin HEAD:main
+          fi
+      - name: Install browser capture tooling (not a runtime dependency)
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Record the working demos and check the mobile layout
+        run: node scripts/render-publication.cjs
+      - name: Publish recorded media and browser evidence
+        run: |
+          git add assets evidence
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add real browser recordings, screenshots and publication evidence'
+            git push origin HEAD:main
+          fi
