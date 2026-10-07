@@ -1,0 +1,95 @@
+{
+  "tool": "Playwright 1.63.0",
+  "browser": "154.0.8037.97",
+  "captures": [
+    {
+      "lang": "en",
+      "initial": {
+        "tick": 1616,
+        "living": 38,
+        "births": 62,
+        "deaths": 24,
+        "inheritances": 15,
+        "scars": 24,
+        "generation": 1,
+        "meanK": 1.3152637001187337
+      },
+      "final": {
+        "tick": 2768,
+        "living": 42,
+        "births": 100,
+        "deaths": 58,
+        "inheritances": 44,
+        "scars": 58,
+        "generation": 2,
+        "meanK": 1.2334423664271428
+      },
+      "source": 46,
+      "descendants": {
+        "living": [
+          {
+            "id": 67,
+            "parentId": 46,
+            "generation": 2
+          }
+        ],
+        "scars": [
+          {
+            "id": 25,
+            "agentId": 46,
+            "childId": 67,
+            "used": true
+          }
+        ]
+      },
+      "errors": [],
+      "video": "assets/preview-en.mp4"
+    },
+    {
+      "lang": "ru",
+      "initial": {
+        "tick": 1616,
+        "living": 38,
+        "births": 62,
+        "deaths": 24,
+        "inheritances": 15,
+        "scars": 24,
+        "generation": 1,
+        "meanK": 1.3152637001187337
+      },
+      "final": {
+        "tick": 2768,
+        "living": 42,
+        "births": 100,
+        "deaths": 58,
+        "inheritances": 44,
+        "scars": 58,
+        "generation": 2,
+        "meanK": 1.2334423664271428
+      },
+      "source": 46,
+      "descendants": {
+        "living": [
+          {
+            "id": 67,
+            "parentId": 46,
+            "generation": 2
+          }
+        ],
+        "scars": [
+          {
+            "id": 25,
+            "agentId": 46,
+            "childId": 67,
+            "used": true
+          }
+        ]
+      },
+      "errors": [],
+      "video": "assets/preview-ru.mp4"
+    }
+  ],
+  "note": "Recordings of the executed model, not physical observations.",
+  "mobileHorizontalOverflow": false,
+  "mobileErrors": []
+}
