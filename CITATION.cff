@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite the software and state the model parameters used in your experiments."
+type: software
+title: "GENESIS: Artificial Life with Environmental Memory"
+authors:
+  - family-names: Pascal
+    given-names: Nicolae
+version: 0.1.0
+date-released: 2026-10-07
+license: CC-BY-4.0
+abstract: "A browser and Node.js digital ecology with phase-field births, persistent environmental scars, delayed inheritance and paired memory-removal experiments."
+keywords:
+  - artificial life
+  - environmental memory
+  - digital inheritance
+  - agent-based modeling
+repository-code: "https://github.com/Architect-Flow78/genesis-world-memory"
+url: "https://github.com/Architect-Flow78/genesis-world-memory"

@@ -1,0 +1,33 @@
+{
+  "seed": 7807,
+  "startTick": 1600,
+  "steps": 1800,
+  "initialScars": 23,
+  "kept": {
+    "tick": 3400,
+    "living": 42,
+    "births": 118,
+    "deaths": 76,
+    "inheritances": 57,
+    "scars": 76,
+    "generation": 2,
+    "meanK": 1.344916626067197,
+    "newBirths": 56,
+    "newInheritances": 42
+  },
+  "erased": {
+    "tick": 3400,
+    "living": 40,
+    "births": 115,
+    "deaths": 75,
+    "inheritances": 51,
+    "scars": 52,
+    "generation": 2,
+    "meanK": 1.3717716787193694,
+    "newBirths": 53,
+    "newInheritances": 36
+  },
+  "stateDifferent": true,
+  "fieldRmsDifference": 0.1764575434714451,
+  "protocol": "Same snapshot, same counter-based field forcing; erase only existing scars in one copy. Future scars remain enabled in both."
+}

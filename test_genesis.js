@@ -1,0 +1,30 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {World,memoryTrial,dist,LEGACY_THRESHOLD}=require('./genesis_engine.js');
+let checks=[];function test(name,fn){fn();checks.push({name,pass:true});}
+const serialize=w=>JSON.stringify(w.snapshot());
+test('No substrate, no noise: no births',()=>{const w=new World({seedField:false,noise:0}).advance(400);assert.equal(w.births,0);assert.ok([...w.phi].every(v=>v===0));});
+test('Seeded replay is exact',()=>{assert.equal(serialize(new World().advance(900)),serialize(new World().advance(900)));});
+test('Different seeds produce different states',()=>{assert.notEqual(serialize(new World({seed:1}).advance(200)),serialize(new World({seed:2}).advance(200)));});
+test('A field pulse can generate births without placing agents',()=>{const w=new World({seedField:false,noise:0});w.pulse(100,4);assert.equal(w.agents.length,0);w.advance(250);assert.ok(w.births>0);});
+test('The zero of the periodic index is adjacent to the last cell',()=>{assert.equal(dist(599,1,600),2);});
+test('Snapshot resume matches uninterrupted run',()=>{const a=new World().advance(600),b=World.fromSnapshot(JSON.parse(serialize(a)));assert.equal(serialize(a.advance(300)),serialize(b.advance(300)));});
+test('Clone does not alias arrays or agents',()=>{const a=new World().advance(100),b=a.clone();b.phi[1]+=10;b.agents[0].K=12;assert.notEqual(a.phi[1],b.phi[1]);assert.notEqual(a.agents[0].K,b.agents[0].K);});
+test('Death leaves a parameter-bearing scar and field displacement',()=>{const w=new World().advance(500),a=w.agents[0],before=[...w.phi],s=w.retire(a.id);assert.equal(s.K,a.K);assert.equal(s.talent,a.talent);assert.ok(w.scars.length);assert.ok(before.some((x,i)=>x!==w.phi[i]));});
+test('Death is not an unconditional immediate replacement',()=>{const w=new World().advance(500),n=w.agents.length,b=w.births;w.retire(w.agents[0].id);assert.equal(w.agents.length,n-1);assert.equal(w.births,b);});
+test('Scar lowers the local candidate threshold',()=>{const w=new World().advance(500),a=w.agents[0],s=w.retire(a.id);assert.ok(w.birthThreshold(s.site)<LEGACY_THRESHOLD);});
+test('Removing scars does not alter current fields or agents',()=>{const a=new World().advance(1800),b=a.clone();b.eraseScars();assert.deepEqual([...a.phi],[...b.phi]);assert.deepEqual([...a.prev],[...b.prev]);assert.deepEqual(a.agents,b.agents);assert.equal(b.scars.length,0);});
+test('Inheritance copies lineage and 60% of experience as specified',()=>{const w=new World().advance(420),a=w.agents.find(a=>a.id===9),s=w.retire(a.id);w.tick+=12;const child=w.birth(s.site);assert.equal(child.parentId,a.id);assert.equal(child.generation,a.generation+1);assert.equal(child.talent,a.talent*.6);assert.equal(child.family,a.family);assert.equal(s.childId,child.id);});
+test('An echo is consumed for inheritance at most once',()=>{const w=new World().advance(420),s=w.retire(9);w.tick+=12;w.birth(s.site);assert.equal(w.localMemory(s.site).echo,null);});
+test('No fixed golden attractor: a coherent K=2 state keeps K=2',()=>{const w=new World({seedField:false,noise:0});const a=w.birth(100);a.K=2;a.fast=a.slow=a.bias=1;a.tension=0;w.advance(200);assert.equal(a.K,2);});
+test('Population never exceeds configured cap',()=>{const w=new World({maxAgents:9}).advance(3000);assert.ok(w.agents.length<=9);});
+test('No memory control keeps scars absent',()=>{const w=new World({memoryEnabled:false}).advance(2000);assert.equal(w.scars.length,0);assert.equal(w.inheritances,0);assert.ok(w.deaths>0);});
+test('Long-run numerical state remains finite, bounded population',()=>{const w=new World().advance(20000);assert.ok([...w.phi,...w.prev].every(Number.isFinite));assert.ok(w.agents.every(a=>Number.isFinite(a.K)&&Number.isFinite(a.r)&&Number.isFinite(a.theta)));assert.ok(w.agents.length<=48);assert.ok(w.inheritances>0);});
+test('Counterfactual with no prior scars has identical continuation',()=>{const w=new World().advance(100),r=memoryTrial(w,200);assert.equal(r.stateDifferent,false);assert.equal(r.fieldRmsDifference,0);});
+const seeds=[7807,123,17,901,1001,214,39,301],trials=[];
+for(const seed of seeds){const w=new World({seed}).advance(1600),r=memoryTrial(w,1800);trials.push({seed,...r});}
+test('Scars alter future agent states in all eight specified paired runs',()=>{assert.ok(trials.every(x=>x.initialScars>0&&x.stateDifferent));});
+test('Environmental memory eventually changes the substrate through descendant deaths',()=>{assert.ok(trials[0].fieldRmsDifference>0);});
+const examples={defaultAtOpen:new World().advance(1600).stats(),trial:trials[0]};
+fs.writeFileSync(__dirname+'/test_results.json',JSON.stringify({checks,passed:checks.length,examples,pairedTrials:trials,scope:'Tests of implemented digital ecology; not evidence of consciousness, biological life or physical solitons.'},null,2));
+console.log(JSON.stringify({passed:checks.length,atOpen:examples.defaultAtOpen,defaultTrial:examples.trial},null,2));

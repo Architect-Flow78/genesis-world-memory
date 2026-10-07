@@ -1,0 +1,16 @@
+{
+  "name": "genesis-world-memory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental artificial life with persistent environmental memory and reproducible counterfactual runs.",
+  "main": "genesis_engine.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node test_genesis.js",
+    "compare": "node examples/compare-memory.cjs"
+  },
+  "author": "Nicolae Pascal",
+  "license": "CC-BY-4.0",
+  "engines": {"node": ">=22"},
+  "keywords": ["artificial-life", "agent-based-modeling", "environmental-memory", "generative-art", "simulation", "javascript"]
+}

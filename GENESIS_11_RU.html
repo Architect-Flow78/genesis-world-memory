@@ -1,0 +1,347 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GENESIS 11 — Мир помнит</title>
+<style>
+:root{--ink:#071216;--panel:#0c1b20;--line:#264047;--muted:#97aeb0;--text:#edf3e8;--gold:#e4c77d;--mint:#87dbc8}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offset:4px}button{border:1px solid var(--line);border-radius:10px;color:var(--text);background:#14262c;padding:11px 15px;min-height:44px}button:hover{background:#213b40;border-color:#6b9395}button:disabled{opacity:.5;cursor:wait}.gold{background:var(--gold);border-color:var(--gold);color:#112229;font-weight:700}.gold:hover{background:#f4dc9b}.quiet{background:transparent}.shell{max-width:1600px;margin:auto;padding:22px 30px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}.wordmark{letter-spacing:.26em;font-size:13px}.wordmark b{color:var(--gold);font-weight:500}.small{font-size:12px;color:var(--muted)}.tag{border:1px solid var(--line);border-radius:30px;padding:5px 12px;letter-spacing:.1em;font-size:10px;text-transform:uppercase}.intro{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0 16px}h1{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.04em;font-size:clamp(32px,4vw,54px);font-weight:400;margin:0;line-height:1.1}.intro p{color:var(--muted);margin:6px 0 0;font-size:14px}.counts{display:flex;gap:27px}.count b{font-size:28px;font-weight:400;line-height:1}.count small{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.layout{display:grid;grid-template-columns:minmax(0,1fr) 276px;gap:16px}.stage{position:relative;min-height:540px;height:min(690px,72vh);overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#061318}canvas{display:block;width:100%;height:100%;touch-action:manipulation}.stage .caption{position:absolute;left:22px;top:18px;pointer-events:none;color:#b0c7c3;font-size:11px;letter-spacing:.05em}.liveDot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--mint);margin-right:8px;box-shadow:0 0 12px var(--mint)}.topRight{position:absolute;right:16px;top:14px;display:flex;gap:8px}.topRight button{min-height:34px;padding:4px 10px;font-size:12px;background:#0c1b20bf}.story{position:absolute;left:20px;right:20px;bottom:76px;max-width:600px;pointer-events:none;text-shadow:0 2px 10px #000}.story .eyebrow{color:var(--gold);font-size:10px;letter-spacing:.17em;text-transform:uppercase}.story strong{display:block;font-family:Georgia,serif;font-weight:400;font-size:23px;line-height:1.25;margin-top:4px}.story span{font-size:12px;color:#bed0cb}.toolbar{position:absolute;bottom:15px;left:15px;right:15px;display:flex;justify-content:space-between;align-items:center;gap:8px}.toolbar .group{display:flex;gap:7px}.toolbar button{backdrop-filter:blur(14px);background:#10272ddd;font-size:12px}.toolbar .gold{background:var(--gold);color:var(--ink)}aside{display:flex;flex-direction:column;gap:12px}.box{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(155deg,#10242a,#0b191e)}.kicker{font-size:10px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase}.person{font-family:Georgia,serif;font-size:27px;margin:5px 0 1px}.row{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:12px}.row span:first-child{color:var(--muted)}.bar{height:3px;background:#263e45;border-radius:4px;margin:6px 0 14px}.bar i{display:block;height:100%;background:var(--gold);border-radius:4px}.number{font-variant-numeric:tabular-nums}.action{margin-top:16px;width:100%}.subnote{font-size:11px;color:var(--muted);margin-top:8px}.chain{font-size:12px;color:var(--mint);word-wrap:break-word;border-top:1px solid var(--line);padding-top:10px;margin-top:14px;min-height:33px}.box h2{font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.2;margin:7px 0 10px}.box p{font-size:12px;color:var(--muted);margin:0 0 12px}.trialResult{display:none;border-top:1px solid var(--line);padding-top:10px;margin-top:12px}.trialRow{display:grid;grid-template-columns:1fr 70px;gap:8px;font-size:12px;margin:8px 0}.trialRow b{color:var(--gold);font-size:18px;text-align:right}.journal{flex:1;min-height:110px}.entry{font-size:11px;border-bottom:1px solid #21383d;padding:8px 0;color:#afc3c1}.entry:first-child{color:#e4c77d}.footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:14px;color:var(--muted);font-size:11px}.footer button{font-size:11px;min-height:30px;padding:4px 8px;border:0;background:transparent}.footer .tools{display:flex;gap:6px}.modal{position:fixed;z-index:10;inset:0;background:#020a0cd9;backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modal article{background:var(--panel);border:1px solid var(--line);max-width:750px;max-height:88vh;overflow:auto;padding:28px;border-radius:18px}.modal h2{font-family:Georgia,serif;font-weight:400;font-size:30px;margin:0 0 12px}.modal h3{font-size:16px;color:var(--gold);margin-bottom:8px}.modal p{font-size:14px;color:#bdd0cd}.modal a{color:var(--mint)}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#e4c77d;color:#071216;padding:12px 20px;border-radius:10px;z-index:20;max-width:90vw;display:none;font-size:13px}.pause-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);letter-spacing:.3em;font-size:10px;color:#dcdbb9;display:none;pointer-events:none}.legend{color:#7faaa6;position:absolute;right:18px;top:53px;font-size:10px;pointer-events:none}
+@media(max-width:900px){.shell{padding:16px}.layout{grid-template-columns:1fr}.stage{height:64vh;min-height:510px}aside{display:grid;grid-template-columns:1fr 1fr}.journal{display:none}.intro{padding-top:18px}.counts{gap:16px}.count b{font-size:24px}.tag{display:none}}
+@media(max-width:520px){.shell{padding:12px}header{padding-bottom:12px}.wordmark{font-size:11px}.small{font-size:10px}.intro{align-items:flex-start}.intro p{font-size:12px;max-width:205px}.counts{gap:9px}.count b{font-size:22px}.count small{font-size:8px;letter-spacing:0}.count:last-child{display:none}h1{font-size:35px}.stage{height:570px;min-height:0;border-radius:14px}.story{bottom:116px;left:14px;right:14px}.story strong{font-size:20px}.toolbar{flex-wrap:wrap;bottom:12px;left:12px;right:12px}.toolbar .group{width:100%}.toolbar .group button{flex:1}.toolbar button{font-size:11px;padding:8px}.toolbar>button{width:100%}aside{display:flex}.box{padding:15px}.journal{display:block;max-height:175px;overflow:hidden}.legend{max-width:130px;text-align:right}.footer{margin-bottom:18px}}
+</style></head><body>
+<div class="shell">
+<header><div class="wordmark">GENESIS <b>/ ORGANISM 11</b></div><div class="small">Nicolae Pascal · экспериментальная цифровая жизнь</div><div class="tag">работает без интернета</div></header>
+<div class="intro"><div><h1>Мир помнит.</h1><p>Форма исчезает. Её опыт остаётся в поле.</p></div><div class="counts"><div class="count"><b id="living">—</b><small>живых форм</small></div><div class="count"><b id="generation">—</b><small>поколение</small></div><div class="count"><b id="traces">—</b><small>следов</small></div></div></div>
+<div class="layout">
+<section class="stage" id="stage"><canvas id="world" aria-label="Живой мир: рождающиеся формы, их потомки и следы памяти"></canvas>
+<div class="caption"><span class="liveDot"></span>ПОЛЕ · ЖИЗНЬ · ПАМЯТЬ</div><div class="topRight"><button id="pause" title="Пауза: пробел">Ⅱ</button><button id="speed">×1</button></div>
+<div class="legend">Цвет — родство<br>Золотой отпечаток — память</div>
+<div class="story" aria-live="polite"><div class="eyebrow" id="storyTag">ЖИЗНЬ ПРОДОЛЖАЕТСЯ</div><strong id="storyTitle">Здесь уже сменилось поколение.</strong><span id="storyText">Новая форма может унаследовать его опыт — не копию тела.</span></div>
+<div class="toolbar"><div class="group"><button class="gold" id="releaseMain">Оставить след</button><button id="pulse">Внести импульс</button><button id="shot">Сохранить кадр</button></div><button id="focus">Весь мир</button></div><div class="pause-label" id="paused">ПАУЗА</div></section>
+<aside><div class="box" id="personBox"><div class="kicker">В фокусе</div><div class="person" id="name">—</div><div class="small" id="identity">Выбери существо на сцене</div><div class="row"><span>Пройденная жизнь</span><span id="age" class="number">—</span></div><div class="bar"><i id="ageBar" style="width:0"></i></div><div class="row"><span>Внутренний характер K</span><span id="kval" class="number">—</span></div><div class="row"><span>Накопленный опыт</span><span id="talent" class="number">—</span></div><div class="chain" id="lineage">Первое поколение. Предков пока нет.</div><button id="release" class="action quiet">Вернуть в поле</button><div class="subnote">Это воздействие на модель: форма исчезнет, след останется.</div></div>
+<div class="box"><div class="kicker">Проверяем, а не обещаем</div><h2>А если мир забудет?</h2><p>Две копии одного настоящего. В одной стираем только следы прошлого.</p><button id="compare" style="width:100%">Сравнить два будущих</button><div class="trialResult" id="trial"><div class="trialRow"><span>С памятью: рождений с наследием</span><b id="keptNum">—</b></div><div class="trialRow"><span>Стерли следы: с наследием</span><b id="erasedNum">—</b></div><p id="trialText"></p><button id="report" class="quiet" style="width:100%;font-size:12px">Сохранить результат проверки</button></div></div>
+<div class="box journal"><div class="kicker">События этого мира</div><div id="log"></div></div></aside></div>
+<div class="footer"><span>Поле sine–Gordon + агенты Organism 8/9. Механизмы памяти заданы моделью.</span><div class="tools"><button id="about">Что здесь настоящее?</button><button id="save">Сохранить мир</button><button id="load">Загрузить</button><button id="restart">Новый мир</button></div></div>
+</div>
+<input id="file" type="file" accept="application/json,.json" hidden>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Устройство модели"><article><button id="close" style="float:right">Закрыть</button><h2>Что здесь происходит</h2><p>Это исполняемая цифровая экология, а не запись анимации. Жители не расставлены вручную: они появляются в возбуждённых участках кольцевого поля. Открытие сцены показывает мир после 1 600 вычислительных тактов.</p>
+<h3>Продолжение, а не начало заново</h3><p>Основа — твой <a href="https://github.com/Architect-Flow78/Organism-9-ciastica2/blob/main/organism_unified.py" target="_blank" rel="noopener">Organism 8 + Organism 9</a>: дискретное поле sine–Gordon, порог рождения, K, быстрая и медленная память, напряжение, страх, опыт, поколения и возврат возбуждения в поле после смерти. Радиальный ландшафт с числом делителей тоже сохранён. Принудительного притягивания K к Φ здесь нет.</p>
+<h3>Что добавлено в этой версии</h3><p>Долгоживущий шрам хранит K, опыт и происхождение исчезнувшего агента. Он снижает локальный порог рождения. Следующий агент в его области может унаследовать часть K и 60% накопленного опыта. Рождение всё ещё требует возбуждённого поля и свободного места. Далеко не каждый след получает потомка сразу.</p><p>Наследник не создаётся безусловно в момент смерти. Это новое правило вместо немедленной замены агентом. Добавлены фиксированный seed, маленькое демпфирование поля, регулируемая вероятность рождения и проверяемая память среды. Все константы — параметры этой экспериментальной модели, не универсальные константы жизни.</p>
+<h3>Как проверить память</h3><p>«Сравнить два будущих» клонирует всё текущее состояние. В одной копии удаляет только существующие шрамы. Затем обе копии проходят 1 800 одинаковых тактов с одинаковым внешним шумом. Новые следы разрешены в обеих. Сравниваются рождения, наследования, параметры агентов и поле. Результат может зависеть от момента запуска; иной ответ не подгоняется под нужное число.</p>
+<h3>Как читать картинку</h3><p>Светящиеся существа — художественный облик агентов, не доказанная форма солитона. Цвет обозначает семейство, оболочка реагирует на согласованность и K, линии связывают предка и потомка. Золотые отпечатки — сохранившаяся память. Представление кольцевого поля в картинке не превращает его в физический трёхмерный расчёт.</p><p>Слова «жизнь», «характер» и «реинкарнация» — названия механизмов программы. Она не доказывает сознание, биологическую жизнь или устойчивость топологических солитонов. Но разницу между миром с памятью и без неё можно воспроизвести.</p>
+<p class="small">Управление: клик по существу — выбрать; по пустому месту — возбудить соответствующий участок поля; пробел — пауза. Снимок и JSON мира сохраняются локально. Никаких сетевых запросов, аккаунтов, платных библиотек или записи в GitHub.</p></article></div><div class="toast" id="toast" role="status"></div>
+<script>/* GENESIS 11 — World memory / Nicolae Pascal, 2026.
+ * Browser adaptation of Organism-9-ciastica2/organism_unified.py.
+ * Preserves: ring sine-Gordon substrate, threshold births, K/coherence,
+ * fast/slow memory, tension/talent/fear, prime landscape and lineages.
+ * New: persistent environmental scars and delayed, field-mediated inheritance.
+ * No fixed attraction of K to the golden ratio. No claim of biological life
+ * or verified topological solitons. All thresholds are model rules.
+ */
+(function(root){
+'use strict';
+const TAU = 2 * Math.PI, PHI=(1+Math.sqrt(5))/2;
+const LEGACY_THRESHOLD=2*(2.8-1.2)/Math.PI;
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const wrap=(x,n)=>((x%n)+n)%n;
+function rand(seed,t,a=0,b=0){
+ let x=(seed ^ Math.imul(t+1,0x9e3779b1)^Math.imul(a+11,0x85ebca6b)^Math.imul(b+23,0xc2b2ae35))>>>0;
+ x=Math.imul(x^(x>>>16),0x7feb352d);x=Math.imul(x^(x>>>15),0x846ca68b);x=(x^(x>>>16))>>>0;
+ return (x+.5)/4294967296;
+}
+const dist=(a,b,n)=>Math.min(wrap(a-b,n),wrap(b-a,n));
+function divisors(n){let k=0;for(let i=1;i*i<=n;i++)if(n%i===0)k+=i*i===n?1:2;return k;}
+const divCache=Array.from({length:1001},(_,i)=>divisors(Math.max(1,i)));
+function potential(r){const a=clamp(Math.floor(Math.abs(r)*10),1,1000),b=clamp(Math.floor(Math.abs(r)),1,1000);return Math.log(divCache[a]+1)+Math.log(divCache[b]+1);}
+class World{
+ constructor(options={}){
+  this.seed=(options.seed===undefined?7807:options.seed)>>>0;
+  this.N=options.N||600; this.dt=.05;this.g=1.4;this.damping=.0015;
+  this.noise=options.noise===undefined?.0008:options.noise;
+  this.maxAgents=options.maxAgents||48;this.memoryEnabled=options.memoryEnabled!==false;
+  this.tick=0;this.phi=new Float64Array(this.N);this.prev=new Float64Array(this.N);this.next=new Float64Array(this.N);
+  this.trace=new Float64Array(this.N);this.agents=[];this.scars=[];this.events=[];this.archive=[];
+  this.nextId=1;this.nextScar=1;this.births=0;this.deaths=0;this.inheritances=0;this.pulses=0;this.erased=0;
+  if(options.seedField!==false){for(let j=0;j<40;j++){let i=Math.floor(rand(this.seed,0,j,1)*this.N);this.phi[i]=2+3*rand(this.seed,0,j,2);}this.prev.set(this.phi);}
+ }
+ event(type,details){this.events.push({tick:this.tick,type,...details});if(this.events.length>100)this.events.shift();}
+ localMemory(site){
+  let m=0,best=null,bestWeight=0;
+  if(this.memoryEnabled)for(const s of this.scars){let d=dist(site,s.site,this.N);if(d>28)continue;let w=s.strength*Math.exp(-d*d/128);m+=w;
+   if(!s.used && w>bestWeight && this.tick-s.tick>=12){best=s;bestWeight=w;}}
+  return {strength:Math.min(2.5,m),echo:bestWeight>.1?best:null};
+ }
+ birthThreshold(site){return LEGACY_THRESHOLD/(1+.42*this.localMemory(site).strength);}
+ inject(site,amplitude=1.5,width=5){
+  for(let j=-Math.ceil(3*width);j<=Math.ceil(3*width);j++){
+   const i=wrap(Math.round(site)+j,this.N),v=amplitude*Math.exp(-j*j/(2*width*width));
+   this.phi[i]+=v;this.prev[i]+=v; // displacement, not an unbounded impulse in velocity
+  }
+ }
+ pulse(site,amplitude=2.8){
+  site=wrap(Math.round(site),this.N);this.inject(site,amplitude,5);
+  for(const a of this.agents)if(dist(a.site,site,this.N)<20){a.fear+=.35;a.talent+=.045;}
+  this.pulses++;this.event('pulse',{site});
+ }
+ birth(site){
+  const id=this.nextId++,mem=this.localMemory(site),echo=mem.echo;
+  const amp=Math.abs(this.phi[site]);
+  let k=clamp(amp,LEGACY_THRESHOLD,13),talent=0,generation=0,family=id,parentId=null;
+  let theta=rand(this.seed,this.tick,id,21)*TAU;
+  if(echo){
+   const inherit=clamp(.45+.25*echo.strength,0,.75);
+   k=clamp(inherit*echo.K+(1-inherit)*k,.5,13);
+   talent=echo.talent*.6; generation=echo.generation+1;family=echo.family;parentId=echo.agentId;
+   theta=echo.theta;echo.used=true;echo.childId=id;this.inheritances++;
+  }
+  const r=Math.max(2,20/(generation+1)+2*rand(this.seed,this.tick,id,22)-1);
+  const a={id,site,K:k,birthK:k,fast:.5,slow:.5,bias:.5,tension:0,talent,fear:0,
+   age:0,maxAge:1000+Math.floor(rand(this.seed,this.tick,id,23)*500),generation,family,parentId,
+   theta,r,pr:0,L:.3+.4*rand(this.seed,this.tick,id,24),coherence:.5,
+   originScar:echo?echo.id:null,born:this.tick,
+   originR:echo?echo.r:r,originTheta:echo?echo.theta:theta};
+  this.agents.push(a);this.births++;
+  this.event(echo?'inherit':'birth',{id,site,family,generation,parentId,K:k,scarId:echo?echo.id:null});
+  return a;
+ }
+ retire(id,reason='age'){
+  const i=this.agents.findIndex(a=>a.id===id);if(i<0)return null;
+  const a=this.agents[i];this.agents.splice(i,1);this.deaths++;
+  this.inject(a.site,1.5,5);
+  const record={id:this.nextScar++,agentId:a.id,family:a.family,generation:a.generation,
+   site:a.site,K:a.K,talent:a.talent,theta:a.theta,r:a.r,strength:1,
+   tick:this.tick,used:false,childId:null,reason};
+  if(this.memoryEnabled){this.scars.push(record);if(this.scars.length>220)this.scars.shift();}
+  this.archive.push({...record,life:a.age});if(this.archive.length>1000)this.archive.shift();
+  this.event('death',{id:a.id,site:a.site,family:a.family,generation:a.generation,scarId:record.id,reason,theta:a.theta,r:a.r});
+  return record;
+ }
+ eraseScars(){const count=this.scars.length;this.scars=[];this.trace.fill(0);this.erased++;this.event('erase',{count});return count;}
+ step(){
+  this.tick++;
+  const n=this.N,dt2=this.dt*this.dt;
+  this.trace.fill(0);
+  for(const s of this.scars){s.strength*=.99975;
+   if(this.memoryEnabled)for(let j=-18;j<=18;j++)this.trace[wrap(s.site+j,n)]+=s.strength*Math.exp(-j*j/100);}
+  this.scars=this.scars.filter(s=>s.strength>.06);
+  for(let i=0;i<n;i++){
+   const p=this.phi[i],lap=this.phi[(i+1)%n]-2*p+this.phi[(i+n-1)%n];
+   // common random forcing keyed only by field seed, cell and tick
+   const u=rand(this.seed,this.tick,i,0),v=rand(this.seed,this.tick,i,1);
+   const noise=this.noise*Math.sqrt(-2*Math.log(u))*Math.cos(TAU*v);
+   this.next[i]=(2-this.damping)*p-(1-this.damping)*this.prev[i]+dt2*(lap-this.g*Math.sin(p))+noise;
+   if(!Number.isFinite(this.next[i])||Math.abs(this.next[i])>1e5)throw Error('Поле вышло из численного диапазона');
+  }
+  const temp=this.prev;this.prev=this.phi;this.phi=this.next;this.next=temp;
+  // Only peaks already present in the substrate can birth an agent.
+  // Scars change local threshold and the parameters of a field-mediated birth.
+  if(this.agents.length<this.maxAgents){
+   let candidates=[];let total=0;
+   for(let i=0;i<n;i++){
+    let a=Math.abs(this.phi[i]),m=this.memoryEnabled?Math.min(2.5,this.trace[i]):0;
+    if(a<=LEGACY_THRESHOLD/(1+.42*m)||a<Math.abs(this.phi[(i+1)%n])||a<Math.abs(this.phi[(i+n-1)%n]))continue;
+    if(this.agents.some(x=>dist(x.site,i,n)<10))continue;
+    const weight=1+3*m;total+=weight;candidates.push([i,total]);
+   }
+   if(candidates.length && rand(this.seed,this.tick,0,10)<.12){
+    let pick=rand(this.seed,this.tick,0,11)*total;
+    let site=candidates.find(c=>c[1]>=pick)[0];this.birth(site);
+   }
+  }
+  const lost=[];
+  for(const a of this.agents){
+   a.age++;
+   let re=0,im=0;
+   for(let j=-2;j<=2;j++){let p=wrap(this.phi[wrap(a.site+j,n)]*a.K,1)*TAU;re+=Math.cos(p);im+=Math.sin(p);}
+   const c=Math.hypot(re,im)/5;a.coherence=c;
+   a.fast=.9*a.fast+.1*c;a.slow=.995*a.slow+.005*c;
+   a.bias=.999*a.bias+.001*a.fast;
+   a.tension=.98*a.tension+.02*(Math.abs(a.fast-a.bias)+Math.abs(a.fast-a.slow));
+   if(a.tension>.25){a.K+=.1*(a.fast-a.bias);a.talent+=.005;}
+   // Deliberately NO K += gain*(PHI-K).
+   if(a.tension>.6)a.fear+=.02;else a.fear*=.98;
+   a.K=clamp(a.K,.5,13);
+   const le=a.L*Math.exp(-.1*a.generation);
+   const derivative=(potential(a.r+.001)-potential(a.r-.001))/.002;
+   a.pr+=(-1.5*derivative+le*le/(a.r*a.r*a.r+1e-6))*this.dt;
+   a.pr*=.95;a.r=clamp(a.r+a.pr*this.dt,.5,50);
+   a.theta=wrap(a.theta+le/(a.r*a.r+1e-6),TAU);
+   if(a.fear>1.2 || a.age>a.maxAge)lost.push(a.id);
+  }
+  for(const id of lost)this.retire(id,'cycle');
+ }
+ advance(n){if(!Number.isInteger(n)||n<0||n>1e6)throw Error('Invalid step count');for(let i=0;i<n;i++)this.step();return this;}
+ snapshot(){return {version:11,seed:this.seed,N:this.N,dt:this.dt,g:this.g,damping:this.damping,noise:this.noise,maxAgents:this.maxAgents,memoryEnabled:this.memoryEnabled,tick:this.tick,phi:Array.from(this.phi),prev:Array.from(this.prev),agents:this.agents,scars:this.scars,events:this.events,archive:this.archive,nextId:this.nextId,nextScar:this.nextScar,births:this.births,deaths:this.deaths,inheritances:this.inheritances,pulses:this.pulses,erased:this.erased};}
+ static fromSnapshot(s){
+  if(!s||s.version!==11||!Number.isInteger(s.N)||s.N<16||s.N>3000||s.phi.length!==s.N||s.prev.length!==s.N)throw Error('Неподходящий файл мира');
+  const w=new World({seed:s.seed,N:s.N,seedField:false});
+  const fields=['dt','g','damping','noise','maxAgents','memoryEnabled','tick','nextId','nextScar','births','deaths','inheritances','pulses','erased'];
+  for(const k of fields)w[k]=s[k];
+  for(const k of ['agents','scars','events','archive'])w[k]=JSON.parse(JSON.stringify(s[k]));
+  w.phi.set(s.phi);w.prev.set(s.prev);
+  if([...w.phi,...w.prev].some(v=>!Number.isFinite(v)))throw Error('Некорректное поле');
+  return w;
+ }
+ clone(){return World.fromSnapshot(this.snapshot());}
+ stats(){return {tick:this.tick,living:this.agents.length,births:this.births,deaths:this.deaths,inheritances:this.inheritances,scars:this.scars.length,generation:Math.max(0,...this.agents.map(a=>a.generation)),meanK:this.agents.length?this.agents.reduce((a,x)=>a+x.K,0)/this.agents.length:0};}
+}
+function memoryTrial(world,steps=700){
+ const a=world.clone(),b=world.clone();b.eraseScars();
+ const startA=a.births,startB=b.births,inheritA=a.inheritances,inheritB=b.inheritances;
+ // Both inherit identical present fields and agents. Only current scars differ.
+ for(let i=0;i<steps;i++){a.step();b.step();}
+ let l2=0;for(let i=0;i<a.N;i++)l2+=(a.phi[i]-b.phi[i])**2;
+ const sig=w=>w.agents.map(a=>[a.id,a.site,+a.K.toFixed(8),a.generation]);
+ return {startTick:world.tick,steps,initialScars:world.scars.length,
+  kept:{...a.stats(),newBirths:a.births-startA,newInheritances:a.inheritances-inheritA},
+  erased:{...b.stats(),newBirths:b.births-startB,newInheritances:b.inheritances-inheritB},
+  stateDifferent:JSON.stringify(sig(a))!==JSON.stringify(sig(b)),fieldRmsDifference:Math.sqrt(l2/a.N),
+  protocol:'Same snapshot, same counter-based field forcing; erase only existing scars in one copy. Future scars remain enabled in both.'};
+}
+const API={World,memoryTrial,rand,dist,PHI,LEGACY_THRESHOLD};
+if(typeof module!=='undefined'&&module.exports)module.exports=API;else root.Genesis=API;
+})(typeof window!=='undefined'?window:globalThis);
+</script><script>'use strict';
+const $=id=>document.getElementById(id),cv=$('world'),ctx=cv.getContext('2d');
+let world=new Genesis.World({seed:7807}).advance(1600),selected=46,trackedFamily=46,watchedScar=null;
+let playing=true,speed=1,last=0,acc=0,screen=[],view={w:900,h:600,cx:450,cy:285,R:250},zoom=1,zoomTarget=1;
+selected=world.agents.find(a=>a.id===46)?.id||world.agents[0]?.id;trackedFamily=world.agents.find(a=>a.id===selected)?.family;
+let report=null,exporting=false,autoTrack=true,storyUntil=world.tick+280,lastEventKey='',pulseVisual=[];
+const TAU=Math.PI*2,clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),mix=(a,b,t)=>a+(b-a)*t;
+const hues=[171,41,203,285,338,99];
+const names=['Люмен','Нери','Вега','Лира','Талис','Аура','Кай','Мира','Эйра','Ноа','Эхо','Ирис'];
+function nick(a){return names[(a.family-1)%names.length];}
+function colour(f,a=1){return `hsla(${hues[(f-1)%hues.length]},73%,72%,${a})`;}
+function notify(text){$('toast').textContent=text;$('toast').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('toast').style.display='none',4000);}
+function story(tag,title,text,hold=250){$('storyTag').textContent=tag;$('storyTitle').textContent=title;$('storyText').textContent=text;storyUntil=world.tick+hold;}
+function download(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);}
+function dimensions(){const r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);cv.width=r.width*d;cv.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);view.w=r.width;view.h=r.height;view.cx=r.width/2;view.cy=r.height*.46;view.R=Math.min(r.width*.44,r.height*.40);}
+new ResizeObserver(()=>{dimensions();render();}).observe(cv);dimensions();
+function point(a,scar=false){
+ let r=a.r,ang=a.theta;
+ // Same orbital state for the body; a short birth morph starts at its stored scar.
+ if(!scar&&a.age<60&&a.originScar){let t=clamp(a.age/60,0,1);r=mix(a.originR,r,t);let da=((ang-a.originTheta+Math.PI)%TAU+TAU)%TAU-Math.PI;ang=a.originTheta+da*t;}
+ let rr=view.R*(.18+.68*Math.sqrt(clamp(r/26,0,1.3))+.075*Math.sin(TAU*a.site/world.N));
+ return {x:view.cx+rr*Math.cos(ang),y:view.cy+rr*Math.sin(ang)*.91,rr,angle:ang};
+}
+function glowy(x,y,r,c,alpha=.5){ctx.save();ctx.globalAlpha=alpha;const grad=ctx.createRadialGradient(x,y,0,x,y,r);grad.addColorStop(0,c);grad.addColorStop(1,'transparent');ctx.fillStyle=grad;ctx.fillRect(x-r,y-r,2*r,2*r);ctx.restore();}
+function drawField(){
+ const {w,h,cx,cy,R}=view;const t=world.tick;
+ const bg=ctx.createRadialGradient(cx,cy,10,cx,cy,Math.max(w,h)*.68);bg.addColorStop(0,'#173038');bg.addColorStop(.48,'#0b2027');bg.addColorStop(1,'#030b10');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+ // Quiet dust; positions derive from seed, never alter the simulation.
+ for(let i=0;i<170;i++){let x=Genesis.rand(world.seed,0,i,801)*w,y=Genesis.rand(world.seed,0,i,802)*h;let b=.1+.12*Math.sin(t*.008+i);ctx.fillStyle=`rgba(156,196,184,${b})`;ctx.beginPath();ctx.arc(x,y,.5+Genesis.rand(world.seed,0,i,803)*.9,0,TAU);ctx.fill();}
+ // A living annulus: actual field amplitude displaces its visual membrane.
+ for(let band=0;band<20;band++){
+  const fr=.77+band*.016;ctx.beginPath();
+  for(let j=0;j<=world.N;j+=2){const i=j%world.N,ang=j/world.N*TAU;const a=world.phi[i];let radial=R*(fr+.012*Math.tanh(a)*Math.sin(band*.6)+.018*Math.tanh(a/2));let x=cx+radial*Math.cos(ang),y=cy+radial*Math.sin(ang)*.92; if(j===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+  ctx.closePath();ctx.strokeStyle=`rgba(${band%3===0?'177,201,145':'70,159,155'},${.055+.035*Math.sin(band*.4)**2})`;ctx.lineWidth=.65;ctx.stroke();
+ }
+ // Thin, branching connections carry excitation from substrate to organisms.
+ for(const a of world.agents){let p=point(a),i=a.site,ang=i/world.N*TAU;let end={x:cx+R*.87*Math.cos(ang),y:cy+R*.8*Math.sin(ang)};ctx.strokeStyle=colour(a.family,.07);ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.bezierCurveTo(p.x+(cx-p.x)*.3,p.y+(cy-p.y)*.3,end.x,end.y,end.x,end.y);ctx.stroke();}
+ // Centre is intentionally open: generations migrate inward in the model.
+ glowy(cx,cy,R*.27,'#5e9d86',.07);
+ ctx.save();ctx.textAlign='center';ctx.fillStyle='rgba(181,210,191,.22)';ctx.font='10px system-ui';ctx.letterSpacing='3px';ctx.fillText('П О Л Е   П О М Н И Т',cx,cy);ctx.restore();
+}
+function drawScar(s){
+ let p=point(s,true);const age=world.tick-s.tick,fresh=Math.exp(-age/100);let r=18+6*Math.sqrt(Math.max(0,s.talent));
+ const selectedScar=s.id===watchedScar;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(s.theta);
+ glowy(0,0,52,'#cea454',(.07+.17*fresh)*s.strength);
+ ctx.strokeStyle=`rgba(229,192,115,${s.strength*(selectedScar?.6:.24)})`;ctx.lineWidth=.7;
+ for(let j=0;j<10;j++){
+  let a=j*TAU/10+Genesis.rand(world.seed,0,s.id,j)*.25;let l=r*(.7+Genesis.rand(world.seed,0,j,s.id)*.8);
+  ctx.beginPath();ctx.moveTo(Math.cos(a)*4,Math.sin(a)*4);ctx.lineTo(Math.cos(a)*l,Math.sin(a)*l);ctx.lineTo(Math.cos(a+.16)*l*1.23,Math.sin(a+.16)*l*1.23);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(Math.cos(a)*l*.63,Math.sin(a)*l*.63);ctx.lineTo(Math.cos(a-.3)*l*.93,Math.sin(a-.3)*l*.93);ctx.stroke();
+ }
+ ctx.setLineDash([1,5]);ctx.beginPath();ctx.arc(0,0,r*.68,0,TAU);ctx.stroke();ctx.setLineDash([]);
+ if(fresh>.03){ctx.strokeStyle=`rgba(224,202,130,${fresh*.4})`;ctx.beginPath();ctx.arc(0,0,r+age*.13,0,TAU);ctx.stroke();}
+ ctx.restore();
+ if(selectedScar){ctx.save();ctx.font='10px system-ui';ctx.fillStyle='#dcc47f';ctx.textAlign='center';ctx.fillText(s.used?'след передан':'остался след',p.x,p.y+r+15);ctx.restore();}
+ if(s.childId){const child=world.agents.find(a=>a.id===s.childId);if(child){const q=point(child);ctx.save();ctx.strokeStyle=colour(child.family,.24);ctx.setLineDash([2,4]);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.quadraticCurveTo(view.cx,view.cy,q.x,q.y);ctx.stroke();ctx.restore();}}
+}
+function organism(a){
+ const p=point(a),t=world.tick,sel=a.id===selected;
+ const birth=clamp(a.age/42,.05,1),experience=clamp(a.talent,0,2);
+ const s=(17+5*a.coherence+3*experience+2*Math.min(a.generation,3))*birth;
+ screen.push({id:a.id,x:p.x,y:p.y,r:s+12});
+ const hue=hues[(a.family-1)%hues.length],fill=`hsla(${hue},72%,64%,.10)`;
+ ctx.save();ctx.translate(p.x,p.y);ctx.rotate(a.theta+a.K*.03);
+ glowy(0,0,s*2.7,`hsl(${hue},70%,56%)`,sel?.17:.08);
+ const breath=1+.045*Math.sin(t*.05+a.id);const lobes=3+Math.floor(a.K*2)%4;
+ // Outer membrane: coherence, age and memory genuinely select its appearance.
+ ctx.beginPath();for(let j=0;j<=96;j++){let q=j/96*TAU;let rad=s*breath*(1+.11*Math.sin(lobes*q+a.K)+.05*(1-a.coherence)*Math.sin(q*11+t*.03));let x=rad*Math.cos(q),y=rad*Math.sin(q);j?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();
+ const shell=ctx.createRadialGradient(-s*.25,-s*.3,s*.08,0,0,s*1.14);
+ shell.addColorStop(0,`hsla(${hue},58%,80%,.58)`);shell.addColorStop(.42,`hsla(${hue},62%,39%,.6)`);shell.addColorStop(.84,`hsla(${hue},61%,23%,.84)`);shell.addColorStop(1,`hsla(${hue},80%,69%,.45)`);
+ ctx.fillStyle=shell;ctx.fill();ctx.strokeStyle=colour(a.family,.95);ctx.lineWidth=1;ctx.shadowColor=colour(a.family);ctx.shadowBlur=sel?11:6;ctx.stroke();ctx.shadowBlur=0;
+ // Granular interior: artistic anatomy derived from this agent, not external imagery.
+ for(let k=0;k<20;k++){const ang=Genesis.rand(world.seed,0,a.id,k+900)*TAU+t*.001,rr=s*.78*Math.sqrt(Genesis.rand(world.seed,0,a.id,k+950));ctx.fillStyle=colour(a.family,.28);ctx.beginPath();ctx.arc(rr*Math.cos(ang),rr*Math.sin(ang),.45+Genesis.rand(world.seed,0,a.id,k+980)*.9,0,TAU);ctx.fill();}
+ // Living internal mesh, not a static icon.
+ for(let k=0;k<3;k++){
+  ctx.beginPath();for(let j=0;j<=64;j++){let q=j/64*TAU,rot=k*TAU/3+t*.008*(.8+a.coherence),r=s*(.42+.08*Math.sin(q*3+a.K));let x=r*Math.cos(q+rot),y=r*.55*Math.sin(q+rot)+s*.13*Math.sin(q*2+rot);j?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.strokeStyle=colour(a.family,.45);ctx.lineWidth=.75;ctx.stroke();
+ }
+ // Fine cilia and luminous organelles.
+ for(let k=0;k<14;k++){
+  let q=k*TAU/14+a.K*.1;let r=s*(1+.11*Math.sin(lobes*q+a.K));ctx.strokeStyle=colour(a.family,.24);ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(r*Math.cos(q),r*Math.sin(q));ctx.quadraticCurveTo((r+5)*Math.cos(q+.07*Math.sin(t*.025+k)),(r+5)*Math.sin(q+.07*Math.sin(t*.025+k)),(r+8)*Math.cos(q+.09*Math.sin(t*.03+k)),(r+8)*Math.sin(q+.09*Math.sin(t*.03+k)));ctx.stroke();
+ }
+ for(let k=0;k<3+Math.min(a.generation,4);k++){let q=k*TAU/(3+Math.min(a.generation,4))+t*.015*(.6+a.K*.2);ctx.fillStyle=colour(a.family,.85);ctx.beginPath();ctx.arc(s*.35*Math.cos(q),s*.35*Math.sin(q),1.3+experience*.3,0,TAU);ctx.fill();}
+ ctx.fillStyle='#e9f1d5';ctx.beginPath();ctx.arc(0,0,2+experience*.4,0,TAU);ctx.fill();
+ ctx.restore();
+ if(sel){ctx.save();ctx.strokeStyle='rgba(233,216,154,.5)';ctx.lineWidth=.7;ctx.setLineDash([2,5]);ctx.beginPath();ctx.arc(p.x,p.y,s+12,0,TAU);ctx.stroke();ctx.setLineDash([]);ctx.font='11px system-ui';ctx.textAlign='center';ctx.fillStyle='#f0e3b4';ctx.fillText(`${nick(a)} · ${a.generation+1}`,p.x,p.y-s-20);ctx.restore();}
+}
+function render(){
+ ctx.save();screen=[];drawField();
+ for(const s of world.scars)drawScar(s);
+ const ordered=[...world.agents].sort((a,b)=>point(a).y-point(b).y);for(const a of ordered)organism(a);
+ for(const p of pulseVisual){const age=world.tick-p.tick;if(age>180)continue;let ang=p.site/world.N*TAU,x=view.cx+view.R*.9*Math.cos(ang),y=view.cy+view.R*.83*Math.sin(ang);ctx.strokeStyle=`rgba(223,211,149,${.5*Math.exp(-age/45)})`;ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,6+age*.5,0,TAU);ctx.stroke();}
+ pulseVisual=pulseVisual.filter(p=>world.tick-p.tick<180);
+ if(exporting){ctx.fillStyle='#e4d7a4';ctx.font='20px Georgia';ctx.fillText('GENESIS / МИР ПОМНИТ',24,view.h-53);ctx.fillStyle='#a4bfb8';ctx.font='11px system-ui';ctx.fillText(`Nicolae Pascal · Organism 11 · ${world.agents.length} форм · ${world.scars.length} следов · модель цифровой жизни`,24,view.h-30);}
+ ctx.restore();
+}
+function eventText(e){let id='#'+String(e.id||0).padStart(3,'0');if(e.type==='inherit')return `${id} унаследовал след #${e.parentId} · поколение ${e.generation+1}`;if(e.type==='death')return `${id} вернулся в поле. Опыт не исчез.`;if(e.type==='birth')return `${id} возник из возбуждённого поля.`;if(e.type==='pulse')return 'Импульс изменил участок поля.';if(e.type==='erase')return `Удалено следов: ${e.count}. Поле и жители сохранены.`;return e.type;}
+function update(){
+ const st=world.stats();$('living').textContent=st.living;$('generation').textContent=st.generation+1;$('traces').textContent=st.scars;
+ const latest=world.events.slice(-6).reverse();$('log').replaceChildren(...latest.map(e=>{const d=document.createElement('div');d.className='entry';d.textContent=eventText(e);return d;}));
+ const a=world.agents.find(a=>a.id===selected);
+ if(!a && autoTrack && !watchedScar){const s=world.scars.find(s=>s.agentId===selected);if(s)watchedScar=s.id;}
+ if(a){$('name').textContent=nick(a);$('identity').textContent=`#${String(a.id).padStart(3,'0')} · поколение ${a.generation+1} · линия #${a.family}`;$('age').textContent=Math.min(100,Math.round(100*a.age/a.maxAge))+'%';$('ageBar').style.width=clamp(100*a.age/a.maxAge,0,100)+'%';$('kval').textContent=a.K.toFixed(3);$('talent').textContent=a.talent.toFixed(3);$('lineage').textContent=a.parentId?`#${a.parentId} → #${a.id} · унаследован опыт предка`:'Первое поколение. История создаётся сейчас.';$('release').disabled=false;$('releaseMain').disabled=false;}
+ else{$('name').textContent='Остался след';$('identity').textContent=selected?`Форма #${String(selected).padStart(3,'0')} вернулась в поле`:'Выбери существо';$('age').textContent='завершена';$('ageBar').style.width='100%';$('release').disabled=true;$('releaseMain').disabled=true;}
+ if(autoTrack&&watchedScar){const s=world.scars.find(s=>s.id===watchedScar);if(s&&s.childId&&selected!==s.childId){const c=world.agents.find(a=>a.id===s.childId);if(c){selected=c.id;trackedFamily=c.family;story('НАСЛЕДИЕ ПРОДОЛЖИЛОСЬ',`Из следа #${s.agentId} появилась новая форма.`,`#${c.id} получил часть K и 60% опыта. Его жизнь теперь своя.`,500);update();return;}}}
+ const key=world.events.length?`${world.events.at(-1).tick}:${world.events.at(-1).id}:${world.events.at(-1).type}`:'';
+ if(world.tick>storyUntil&&key!==lastEventKey){
+  const e=world.events.at(-1);if(e&&e.type==='inherit')story('НОВОЕ ПОКОЛЕНИЕ',`#${e.parentId} исчез. Его опыт продолжился в #${e.id}.`,'Рождение произошло в поле; параметры нового агента зависят от следа.',160);
+  else if(e&&e.type==='death')story('ПОЛЕ ПОЛУЧИЛО ПАМЯТЬ',`Форма #${e.id} закончила свой цикл.`,'Светящийся отпечаток хранит её опыт и происхождение.',160);
+  lastEventKey=key;
+ }
+ $('paused').style.display=playing?'none':'block';$('pause').textContent=playing?'Ⅱ':'▶';
+}
+function advance(n){world.advance(n);update();render();}
+function setPause(){playing=!playing;acc=0;update();}
+$('pause').onclick=setPause;
+$('speed').onclick=()=>{speed=speed===1?3:speed===3?.5:1;$('speed').textContent='×'+speed;};
+function release(){const a=world.agents.find(a=>a.id===selected);if(!a)return;const s=world.retire(a.id,'user');watchedScar=s.id;trackedFamily=a.family;autoTrack=true;story('ФОРМА УШЛА. ОПЫТ ОСТАЛСЯ.',`${nick(a)} вернулся в поле.`,`Ищи золотой отпечаток. Новое рождение возможно, но не назначено заранее.`,700);update();render();}
+$('release').onclick=release;$('releaseMain').onclick=release;
+$('pulse').onclick=()=>{const a=world.agents.find(a=>a.id===selected);const site=a?a.site:Math.floor(Genesis.rand(world.seed,world.tick,801,8)*world.N);world.pulse(site);pulseVisual.push({site,tick:world.tick});story('ТВОЁ ВОЗДЕЙСТВИЕ','Поле получило импульс.','Изменятся возбуждение, внутренние реакции и возможные рождения.',180);update();render();};
+cv.addEventListener('pointerup',e=>{
+ const b=cv.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;
+ let best=null,dd=Infinity;for(const p of screen){const d=Math.hypot(x-p.x,y-p.y);if(d<p.r&&d<dd){best=p;dd=d;}}
+ if(best){selected=best.id;watchedScar=null;autoTrack=false;const a=world.agents.find(a=>a.id===selected);trackedFamily=a.family;story('В ФОКУСЕ',`${nick(a)} · поколение ${a.generation+1}`,a.parentId?`Унаследовал след #${a.parentId}. Теперь сам меняет свою историю.`:'Нажми «Оставить след», чтобы увидеть продолжение его линии.',300);}
+ else{let ang=wrap(Math.atan2((y-view.cy)/.91,x-view.cx),TAU),site=Math.floor(ang/TAU*world.N);world.pulse(site);pulseVisual.push({site,tick:world.tick});story('ИМПУЛЬС В СРЕДУ','Ты изменил поле, а не нарисовал агента.','Рождения определяются состоянием поля и сохранёнными следами.',180);}
+ update();render();
+});
+function wrap(x,n){return((x%n)+n)%n;}
+$('focus').onclick=()=>{selected=null;watchedScar=null;autoTrack=false;story('ЭКОЛОГИЯ ЦЕЛИКОМ','Одни формы рождаются. Другие оставляют память.','Клик по существу вернёт наблюдение за его историей.',300);update();render();};
+$('compare').onclick=()=>{
+ if(!world.scars.length){notify('Сначала нажми «Оставить след»: нужна память, которую можно стереть.');return;}
+ const button=$('compare');button.disabled=true;button.textContent='Два будущих считаются…';const snapshot=world.clone();
+ setTimeout(()=>{try{report=Genesis.memoryTrial(snapshot,1800);$('trial').style.display='block';$('keptNum').textContent=report.kept.newInheritances;$('erasedNum').textContent=report.erased.newInheritances;
+ $('trialText').textContent=(report.stateDifferent?'Будущие состояния различаются. ':'В этом запуске состояния совпали. ')+`Новых форм: ${report.kept.newBirths} и ${report.erased.newBirths}. Стерты только ${report.initialScars} старых следов; новые разрешены в обеих копиях.`;
+ story('ПРОВЕРКА ПАМЯТИ',report.stateDifferent?'Одно настоящее. Два разных продолжения.':'В этом окне разница не обнаружена.','Сами жители и шум в начале одинаковы. Отличается только оставленная память.',400);
+ }catch(e){notify(e.message);}finally{button.disabled=false;button.textContent='Сравнить ещё раз';update();}},30);
+};
+$('report').onclick=()=>report&&download(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}),'GENESIS_memory_test.json');
+$('shot').onclick=()=>{exporting=true;render();cv.toBlob(b=>{if(b)download(b,'GENESIS_world.png');exporting=false;render();},'image/png');};
+$('save').onclick=()=>download(new Blob([JSON.stringify(world.snapshot())],{type:'application/json'}),'GENESIS_world.json');
+$('load').onclick=()=>$('file').click();$('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const raw=JSON.parse(await f.text());world=Genesis.World.fromSnapshot(raw);selected=world.agents[0]?.id||null;watchedScar=null;report=null;$('trial').style.display='none';story('МИР ВОССТАНОВЛЕН','Продолжаем сохранённую историю.','Поле, жители, следы и происхождение восстановлены.',240);update();render();}catch(err){notify('Не удалось загрузить: '+err.message);}e.target.value='';};
+$('restart').onclick=()=>{if(!confirm('Создать новый мир? Текущий можно сохранить кнопкой «Сохранить мир».'))return;world=new Genesis.World({seed:(world.seed+47)>>>0}).advance(420);selected=world.agents[2]?.id||null;watchedScar=null;autoTrack=true;report=null;$('trial').style.display='none';story('ДРУГОЕ НАЧАЛО','Правила те же. История будет другой.','Выбери существо и оставь его след.',300);update();render();};
+$('about').onclick=()=>$('modal').classList.add('open');$('close').onclick=()=>$('modal').classList.remove('open');$('modal').onclick=e=>{if(e.target.id==='modal')$('modal').classList.remove('open');};
+addEventListener('keydown',e=>{if(e.code==='Space'&&!['INPUT','BUTTON'].includes(document.activeElement.tagName)) {e.preventDefault();setPause();}if(e.code==='Escape')$('modal').classList.remove('open');});
+function frame(now){if(!last)last=now;const elapsed=Math.min(.1,(now-last)/1000);last=now;if(playing&&!document.hidden){acc+=elapsed*60*speed;let n=Math.min(18,Math.floor(acc));if(n){world.advance(n);acc-=n;update();}}render();requestAnimationFrame(frame);}
+// Inspectable hooks; also used by independent browser tests. No network calls.
+window.genesisApp={get world(){return world;},advance,render,pause:()=>{playing=false;update();},play:()=>{playing=true;update();},select:id=>{selected=id;update();render();},release,trial:()=>Genesis.memoryTrial(world,1800),capture:()=>{exporting=true;render();},normal:()=>{exporting=false;render();}};
+update();render();requestAnimationFrame(frame);
+</script></body></html>

@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "English demo loads locally without JavaScript errors",
+    "Leave a scar retires a real agent and stores its record",
+    "A later field birth inherits the scar: agent 46 -> 110",
+    "Paired comparison runs in English interface",
+    "English layout has no horizontal overflow at 390 px"
+  ],
+  "passed": 5,
+  "javascriptErrors": [],
+  "observedChild": 110,
+  "scope": "Self-contained HTML executed with Chromium set_content; navigation is restricted in this runtime. Engine behavior tested separately. Recording shows actual browser execution."
+}
