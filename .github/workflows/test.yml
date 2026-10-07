@@ -1,0 +1,27 @@
+name: Check GENESIS
+on:
+  push:
+    paths:
+      - 'genesis_engine.js'
+      - 'genesis_app_en.js'
+      - 'test_genesis.js'
+      - 'examples/**'
+      - 'docs/INTERFACE_EN.html'
+      - 'build_demo.cjs'
+      - 'package.json'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Run deterministic tests
+        run: node test_genesis.js
+      - name: Run the paired-memory example
+        run: node examples/compare-memory.cjs
+      - name: Rebuild the standalone demo
+        run: node build_demo.cjs
